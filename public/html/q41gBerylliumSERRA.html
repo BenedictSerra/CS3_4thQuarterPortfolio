@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Index</title>
+        <link rel=stylesheet href="../css/q41gBerylliumSERRA.css"></style>
+        <script src="../js/q41gBerylliumSERRA.js" defer></script>
+    </head>
+
+    <body>
+        <form id="form">
+            <div class="Addmovie">
+                <h1> Add a movie </h1>
+            </div>
+
+            <div class="inputs">
+                Title: <br> 
+                <input type="text" id="title" required> <br> <br>
+
+                Year: <br>
+                <input type="text" id="year" required> <br> <br>
+
+                Genre: <br>
+                <select id="genre" required>
+                    <option value="">Choose</option>
+                    <option>Action</option>
+                    <option>Comedy</option>
+                    <option>Horror</option>
+                    <option>Sci-Fi</option>
+                    <option>Romance</option>
+                    <option>Thriller</option>
+                    <option>Musical</option>
+                </select> <br> <br>
+
+                Rating: <br>
+                <div id="star-container">
+                    <span class="star" data-value="1">★</span>
+                    <span class="star" data-value="2">★</span>
+                    <span class="star" data-value="3">★</span>
+                    <span class="star" data-value="4">★</span>
+                    <span class="star" data-value="5">★</span>
+                </div>
+                <input type="hidden" id="rating" name="rating" required>
+
+
+                <br>
+                
+                <div class="Buttons">
+                    <button type="submit">CREATE</button>
+                </div>
+
+            </div>
+
+            <div id="movielist">
+                <h1>Movie List</h1>
+                <div id="movieList"></div>
+            </div>
+
+
+        </form>
+
+    </body>
