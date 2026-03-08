@@ -39,6 +39,7 @@ form.addEventListener("submit", function(e){ //on submit click after form
     if (rating==0) { // if no rating is given
         e.preventDefault();
         alert("Please rate the movie!")
+        return;
     }
 
     else {
