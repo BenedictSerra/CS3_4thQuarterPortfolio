@@ -58,7 +58,28 @@ form.addEventListener("submit", function(e){ //on submit click after form
         rating: rating,
     };
 
-    ratings.push(user); // pushing object to array
+ 
+    let found = false;
+
+    ratings.forEach(movie => {
+
+      if (movie.title.toLowerCase() === user.title.toLowerCase())
+      {
+        movie.title = user.title;
+        movie.year = user.year;
+        movie.genre = user.genre;
+        movie.rating = Math.round((Number(user.rating) + Number(movie.rating)) /2 )
+        found = true;
+      }
+
+    });
+
+    if (!found)
+    {
+        ratings.push(user); // pushing object to array
+    }
+
+
     saveRating(ratings); // saving new ratings
 
     alert("Signup Saved!");
@@ -67,6 +88,19 @@ form.addEventListener("submit", function(e){ //on submit click after form
 
 });
 
+function deleteBtn(index) {
+  const ratings  = getRating();
+  
+  const confirmed = confirm("Are you sure you want to delete the movie");
+
+  if (!confirmed) {
+    return;
+  }
+
+  ratings.splice(index, 1);
+  saveRating(ratings);
+  displayMovies();
+}
 
 function displayMovies() {
     const movieList = document.getElementById("movieList")
@@ -74,16 +108,17 @@ function displayMovies() {
 
     movieList.innerHTML = "";
 
-    ratings.forEach(movie => {
+    ratings.forEach((movie, index) => {
         let stars = "★".repeat(movie.rating) + "☆".repeat(5-movie.rating)
         
         const movieItem = document.createElement("div"); // gives a div to each movie item
         movieItem.classList.add("movieItem"); 
         movieItem.innerHTML = `${movie.title} (${movie.year}) - ${movie.genre}, 
-        Rating:      <span style="color:gold; font-size: 23px;">${stars}</span>`
+        Rating:      <span style="color:gold; font-size: 23px;">${stars}</span> <br> <br>
+        <button class="delete" onclick="deleteBtn(${index})">Delete</button> `
 
         movieList.appendChild(movieItem); // adds new div to movielist
-    })
+    });
 }
 
 displayMovies();  // when html page is loaded
