@@ -117,6 +117,7 @@
 
     c. How do you differentiate sticky from fixed (you can research on sticky)?
        **MY ANSWER:** The main difference between sticky and fixed positioning is that fixed positioning is removed from the normal document flow while sticky is not. Fixed positioning allows the element to anchor to the view port, and it stays in its position
-       even if you scroll. Sticky however, stays 
+       even if you scroll. Sticky however, stays in its original scrolling along with the other elements until it reaches a specific scroll threshold, where it will begin to act like a fixed element.
 
     d. If you were designing a webpage for a school event, how might you use positioning to highlight important information? Please give concrete examples.
+   **MY ANSWER** One thing I would do is keep important information such as the navigation bar as "position: fixed", to ensure that it is on the users screen at all times.
